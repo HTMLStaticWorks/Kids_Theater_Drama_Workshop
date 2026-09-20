@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Kids Theater & Drama Workshop</title>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Configuration and Styles -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body class="bg-light text-gray-900 dark:bg-dark dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
+
+    <!-- HEADER (EXACT MATCH) -->
+    <header class="fixed w-full top-0 z-50 glass shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span
+                        class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex items-center gap-8">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="home2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="text-primary font-medium border-b-2 border-primary">About</a>
+                    <a href="programs.html" class="hover:text-primary transition-colors">Programs</a>
+                    <a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a>
+                    <a href="instructors.html" class="hover:text-primary transition-colors">Instructors</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
+                </nav>
+
+                <!-- Actions & Mobile Menu -->
+                <div class="flex items-center gap-2 xl:gap-4">
+                    <button id="theme-toggle"
+                        class="hidden xl:flex p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="moon" id="theme-toggle-dark-icon"
+                            class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                        <i data-lucide="sun" id="theme-toggle-light-icon"
+                            class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                    <button id="rtl-toggle"
+                        class="hidden xl:flex p-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
+                    <a href="signup.html"
+                        class="hidden xl:flex bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-theater hover:shadow-lg">Sign
+                        Up</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="xl:hidden p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home</a>
+            <a href="home2.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home 2</a>
+            <a href="about.html" class="block px-3 py-3 text-primary font-medium bg-primary/10 rounded-lg">About</a>
+            <a href="programs.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Programs</a>
+            <a href="upcoming-shows.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Upcoming Shows</a>
+            <a href="instructors.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Instructors</a>
+            <a href="contact.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Contact</a>
+            <a href="dashboard.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Dashboard</a>
+
+            <div class="flex items-center gap-4 px-3 py-2">
+                <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="theme-toggle-dark-icon w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                    <i data-lucide="sun" class="theme-toggle-light-icon w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                </button>
+                <button class="rtl-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Toggle RTL">
+                    <i data-lucide="arrow-left-right" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                </button>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 my-4 pt-4 pb-4 px-2">
+                <a href="signup.html"
+                    class="block text-center px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark shadow-md mx-2">Sign
+                    Up</a>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- SECTION 1: About Hero -->
+        <section class="py-24 px-4 text-center relative overflow-hidden min-h-[50vh] flex flex-col justify-center">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.pexels.com/photos/5801321/pexels-photo-5801321.jpeg" class="w-full h-full object-cover" alt="Kids acting background">
+                <div class="absolute inset-0 bg-gray-50/60 dark:bg-dark-card/70"></div>
+                <div class="absolute top-0 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-1/4 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto pt-16" data-aos="zoom-in">
+                <span
+                    class="inline-block px-4 py-1 rounded-full border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 font-bold text-sm tracking-widest uppercase mb-6">Discover
+                    StageSpark</span>
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+                    Lighting Up <span class="text-primary">Young Minds</span>
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400">More than an academy, we are a community dedicated
+                    to celebrating the transformative power of the performing arts.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Our Story -->
+        <section class="py-24 px-4 bg-white dark:bg-dark">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative" data-aos="fade-right">
+                        <!-- Image Grid -->
+                        <img src="https://images.pexels.com/photos/13726442/pexels-photo-13726442.jpeg"
+                            alt="Early theater days" class="rounded-3xl w-full h-64 object-cover mt-12 shadow-lg">
+                        <img src="https://images.pexels.com/photos/12374479/pexels-photo-12374479.jpeg"
+                            alt="Kids performing" class="rounded-3xl w-full h-80 object-cover shadow-xl">
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white dark:bg-dark-card rounded-full shadow-xl flex items-center justify-center border-4 border-gray-50 dark:border-dark z-10">
+                            <i data-lucide="star" class="w-10 h-10 text-secondary-dark"></i>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-left">
+                        <h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">Our <span
+                                class="text-secondary-dark">Story</span></h2>
+                        <div class="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                            <p>Founded in 2010 by a group of passionate theater educators, StageSpark began as a small
+                                summer camp with just 15 students in a rented community center.</p>
+                            <p>We saw firsthand how the shyest children would blossom when given a role, how struggling
+                                readers found their voice through scripts, and how disparate groups of kids forged
+                                lifelong friendships through the shared goal of a production.</p>
+                            <p>Today, we serve over 2,500 students annually in our state-of-the-art facility, but our
+                                core mission remains unchanged: to use the magic of theater to build confidence,
+                                empathy, and joy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Our Mission & Values -->
+        <section class="py-24 px-4 bg-gray-900 text-white relative">
+
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Core <span
+                            class="text-primary-light">Values</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Value -->
+                    <div class="p-8 border border-white/20 rounded-3xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div
+                            class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary-light mb-6">
+                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Inclusivity</h3>
+                        <p class="text-gray-400 text-sm">Every child deserves a place in the spotlight. We celebrate
+                            diversity and create a welcoming space for all.</p>
+                    </div>
+                    <!-- Value -->
+                    <div class="p-8 border border-white/20 rounded-3xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-secondary mb-6">
+                            <i data-lucide="shield" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Courage</h3>
+                        <p class="text-gray-400 text-sm">We encourage students to take creative risks, fail safely, and
+                            learn resilience through the rehearsal process.</p>
+                    </div>
+                    <!-- Value -->
+                    <div class="p-8 border border-white/20 rounded-3xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-secondary-dark mb-6">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Collaboration</h3>
+                        <p class="text-gray-400 text-sm">Theater is a team sport. We emphasize the ensemble over the
+                            individual, teaching vital teamwork skills.</p>
+                    </div>
+                    <!-- Value -->
+                    <div class="p-8 border border-white/20 rounded-3xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-secondary mb-6">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Excellence</h3>
+                        <p class="text-gray-400 text-sm">We hold our students to high professional standards, helping
+                            them discover capabilities they never knew they had.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Theater Learning Journey -->
+        <section class="py-24 px-4 bg-gray-50 dark:bg-dark-card border-b border-gray-200 dark:border-gray-800">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">The Student <span
+                            class="text-secondary-dark">Journey</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400">How we nurture growth year after year.</p>
+                </div>
+
+                <div
+                    class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 dark:before:via-gray-700 before:to-transparent">
+                    <!-- Step 1 -->
+                    <div
+                        class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+                            data-aos="zoom-in">
+                            <i data-lucide="smile" class="w-5 h-5"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800"
+                            data-aos="fade-up">
+                            <h3 class="font-bold text-gray-900 dark:text-white text-xl mb-2">Discovery</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Students discover their voice, explore
+                                basic emotions, and get comfortable with imaginative play.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div
+                        class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-secondary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+                            data-aos="zoom-in">
+                            <i data-lucide="book" class="w-5 h-5"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800"
+                            data-aos="fade-up">
+                            <h3 class="font-bold text-gray-900 dark:text-white text-xl mb-2">Foundation</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Learning the rules of the stage, script
+                                analysis, and basic acting techniques.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div
+                        class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-secondary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+                            data-aos="zoom-in">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800"
+                            data-aos="fade-up">
+                            <h3 class="font-bold text-gray-900 dark:text-white text-xl mb-2">Application</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Tackling complex roles, understanding
+                                character psychology, and full-scale performances.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Our Facilities -->
+        <section class="py-24 px-4 bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2" data-aos="fade-right">
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop"
+                            alt="Theater seating"
+                            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">State-of-the-Art
+                        <span class="text-primary">Studios</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        We believe that a professional environment inspires professional attitudes. Our primary location
+                        features three rehearsal studios with sprung floors, mirrored walls, and acoustically treated
+                        spaces.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">
+                        Additionally, we have a fully equipped 150-seat black box theater where our students perform
+                        their end-of-term showcases, giving them authentic stage experience from day one.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Community Impact -->
+        <section
+            class="py-24 px-4 bg-gray-50 dark:bg-dark-card border-b border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <div
+                        class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800">
+                        <img src="https://images.pexels.com/photos/8612901/pexels-photo-8612901.jpeg"
+                            alt="Community gathering"
+                            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-right">
+                    <h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">Community <span
+                            class="text-secondary">Impact</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        StageSpark is more than just a workshop; it's a vibrant community of passionate educators,
+                        enthusiastic students, and supportive parents.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">
+                        We actively partner with local schools and organizations to provide scholarships and accessible
+                        drama programs to under-resourced neighborhoods, ensuring the magic of theater reaches everyone.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CTA -->
+        <section class="py-24 bg-white dark:bg-dark relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="zoom-in">
+                <i data-lucide="sparkles" class="w-16 h-16 text-primary/20 mx-auto mb-6"></i>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Be Part of
+                    Our Story</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-10">Join thousands of families who have made
+                    StageSpark their creative home.</p>
+                <a href="contact.html"
+                    class="inline-block px-10 py-4 bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xl transition-all shadow-theater hover:-translate-y-1">
+                    Contact Us Today
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (EXACT MATCH) -->
+    <footer
+        class="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Brand -->
+            <div>
+                <a href="index.html" class="flex items-center gap-3 mb-6">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span
+                        class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Empowering children through the magic of theater. A
+                    premium drama workshop for the stars of tomorrow.</p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-5 h-5">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-5 h-5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-5 h-5">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                    <li><a href="instructors.html" class="hover:text-primary transition-colors">Our Instructors</a></li>
+                    <li><a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a>
+                    </li>
+                    <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Programs -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Our Programs</h4>
+                <ul class="space-y-3">
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Little Stars (4-6)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Young Performers (7-10)</a>
+                    </li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Junior Actors (11-14)</a>
+                    </li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Teen Stage (15-18)</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Newsletter</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive updates on new programs and
+                    upcoming shows.</p>
+                <form class="flex" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email address"
+                        class="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-l-lg focus:outline-none focus:border-primary text-gray-900 dark:text-white">
+                    <button type="submit"
+                        class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg transition-colors text-white">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <p>&copy; 2026 StageSpark Kids Theater & Drama Workshop. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Terms of Service</a>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    class="ml-2 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors group"
+                    title="Back to top">
+                    <i data-lucide="arrow-up" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <!-- Main Script -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+
+</html>

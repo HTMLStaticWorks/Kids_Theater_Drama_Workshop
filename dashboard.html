@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard | StageSpark</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Configuration and Styles -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .dashboard-tab {
+            display: none;
+        }
+        .dashboard-tab.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-dark dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-gray-800 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-full">
+            
+            <div class="p-6 flex items-center justify-between border-b border-gray-200 dark:border-gray-800">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+                <button id="close-sidebar" class="lg:hidden text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 space-y-1 custom-scrollbar">
+                <!-- Navigation Items -->
+                <button class="nav-item dashboard-sidebar-active w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left" data-target="overview">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Overview
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="children">
+                    <i data-lucide="users" class="w-5 h-5"></i> My Children
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="programs">
+                    <i data-lucide="book-open" class="w-5 h-5"></i> Programs
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="enrollments">
+                    <i data-lucide="check-square" class="w-5 h-5"></i> Enrollments
+                </button>
+                
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Schedules</p>
+                </div>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="rehearsals">
+                    <i data-lucide="calendar" class="w-5 h-5"></i> Rehearsals
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="performances">
+                    <i data-lucide="ticket" class="w-5 h-5"></i> Performances
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="roles">
+                    <i data-lucide="star" class="w-5 h-5"></i> Role Assignments
+                </button>
+
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Media & Billing</p>
+                </div>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="media">
+                    <i data-lucide="image" class="w-5 h-5"></i> Photos & Videos
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="payments">
+                    <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5"></i> Payments</div>
+                    <span class="bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full">1 Due</span>
+                </button>
+                
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Account</p>
+                </div>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="notifications">
+                    <div class="flex items-center gap-3"><i data-lucide="bell" class="w-5 h-5"></i> Notifications</div>
+                    <span class="bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="profile">
+                    <i data-lucide="user" class="w-5 h-5"></i> Profile
+                </button>
+                <button class="nav-item hover:bg-gray-100 dark:hover:bg-gray-800 w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left text-gray-600 dark:text-gray-400" data-target="settings">
+                    <i data-lucide="settings" class="w-5 h-5"></i> Settings
+                </button>
+            </div>
+
+            <div class="p-4 border-t border-gray-200 dark:border-gray-800">
+                <a href="index.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-primary-dark hover:bg-primary/10 dark:hover:bg-red-900/20 transition-colors">
+                    <i data-lucide="log-out" class="w-5 h-5"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 flex flex-col h-screen lg:ml-72 transition-all duration-300">
+            
+            <!-- TOP BAR -->
+            <header class="h-20 bg-white dark:bg-dark-card border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 sm:px-8 shrink-0 z-40">
+                <div class="flex items-center gap-4">
+                    <button id="sidebar-toggle" class="xl:hidden p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <h1 id="page-title" class="text-2xl font-bold font-display text-gray-900 dark:text-white">Dashboard Overview</h1>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                        <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-5 h-5 hidden"></i>
+                        <i data-lucide="sun" id="theme-toggle-light-icon" class="w-5 h-5"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary" title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-gray-200 dark:border-gray-700">
+                        <img src="https://ui-avatars.com/api/?name=Jane+Doe&background=6b21a8&color=fff" alt="User" class="w-10 h-10 rounded-full">
+                        <div class="hidden sm:block">
+                            <p class="text-sm font-bold text-gray-900 dark:text-white">Jane Doe</p>
+                            <p class="text-xs text-gray-500">Parent</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT VIEWS -->
+            <div class="flex-1 overflow-y-auto p-4 sm:p-8 bg-gray-50 dark:bg-dark">
+                
+                <!-- 1. Overview Tab -->
+                <div id="overview" class="dashboard-tab active max-w-6xl mx-auto space-y-8">
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">Children Enrolled</p>
+                                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white">2</h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"><i data-lucide="users" class="w-5 h-5"></i></div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">Active Workshops</p>
+                                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white">2</h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary-dark"><i data-lucide="book-open" class="w-5 h-5"></i></div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">Next Rehearsal</p>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Tomorrow</h3>
+                                    <p class="text-sm text-primary font-bold">4:30 PM</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary-dark"><i data-lucide="calendar" class="w-5 h-5"></i></div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-primary/20 dark:border-primary-dark/30 shadow-sm bg-primary/5 dark:bg-primary-dark/10">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <p class="text-sm text-primary-dark dark:text-primary-100 font-medium">Pending Payment</p>
+                                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white">$150</h3>
+                                    <a href="#" class="text-xs text-primary-dark dark:text-primary-100 font-bold hover:underline" onclick="document.querySelector('[data-target=payments]').click()">Pay Now</a>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary-dark/50 flex items-center justify-center text-primary-dark"><i data-lucide="credit-card" class="w-5 h-5"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Layout Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-8">
+                            <!-- Quick Schedule -->
+                            <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+                                <div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Upcoming This Week</h3>
+                                    <button class="text-primary text-sm font-bold hover:underline" onclick="document.querySelector('[data-target=rehearsals]').click()">View All</button>
+                                </div>
+                                <div class="p-0">
+                                    <div class="flex items-center p-6 border-b border-gray-50 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <div class="w-16 text-center mr-6">
+                                            <p class="text-xs text-gray-500 font-bold uppercase">Tue</p>
+                                            <p class="text-2xl font-bold text-gray-900 dark:text-white">14</p>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h4 class="font-bold text-gray-900 dark:text-white">Junior Actors Rehearsal</h4>
+                                            <p class="text-sm text-gray-500">Child: Lily Doe • Main Studio</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-bold text-gray-900 dark:text-white">4:30 PM</p>
+                                            <p class="text-sm text-gray-500">2 Hrs</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-6 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <div class="w-16 text-center mr-6">
+                                            <p class="text-xs text-gray-500 font-bold uppercase">Sat</p>
+                                            <p class="text-2xl font-bold text-gray-900 dark:text-white">18</p>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h4 class="font-bold text-gray-900 dark:text-white">Little Stars Workshop</h4>
+                                            <p class="text-sm text-gray-500">Child: Sam Doe • Studio B</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-bold text-gray-900 dark:text-white">9:00 AM</p>
+                                            <p class="text-sm text-gray-500">1 Hr</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-8">
+                            <!-- Announcements -->
+                            <div class="bg-primary text-white rounded-2xl shadow-sm overflow-hidden relative">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                                <div class="p-6 relative z-10">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <i data-lucide="megaphone" class="w-5 h-5 text-secondary"></i>
+                                        <h3 class="font-bold text-lg">Announcements</h3>
+                                    </div>
+                                    <h4 class="font-bold mb-2">Winter Showcase Tickets</h4>
+                                    <p class="text-sm text-primary-100 mb-4">Parent pre-sale begins next Monday! Check your email for the access code.</p>
+                                    <button class="w-full py-2 bg-white text-primary-dark rounded-lg font-bold text-sm hover:bg-gray-100 transition-colors">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. My Children Tab -->
+                <div id="children" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white">Enrolled Children</h2>
+                        <button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium text-sm">
+                            <i data-lucide="plus" class="w-4 h-4"></i> Add Child
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Child 1 -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 flex flex-col sm:flex-row gap-6">
+                            <img src="https://images.unsplash.com/photo-1595454223600-91fb57cbcc37?q=80&w=2000&auto=format&fit=crop" alt="Lily" class="w-24 h-24 rounded-full object-cover shrink-0">
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-gray-900 dark:text-white">Lily Doe</h3>
+                                        <p class="text-gray-500 text-sm">Age 12</p>
+                                    </div>
+                                    <span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-3 py-1 rounded-full text-xs font-bold">Active</span>
+                                </div>
+                                <div class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p><span class="font-bold text-gray-900 dark:text-gray-200">Current Program:</span> Junior Actors</p>
+                                    <p><span class="font-bold text-gray-900 dark:text-gray-200">Current Role:</span> Fairy Godmother</p>
+                                </div>
+                                <div class="mt-4 flex gap-2">
+                                    <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Edit Profile</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Child 2 -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 flex flex-col sm:flex-row gap-6">
+                            <div class="w-24 h-24 rounded-full bg-secondary/10 dark:bg-secondary-dark/30 flex items-center justify-center text-secondary-dark dark:text-secondary text-3xl font-display font-bold shrink-0">S</div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-gray-900 dark:text-white">Sam Doe</h3>
+                                        <p class="text-gray-500 text-sm">Age 5</p>
+                                    </div>
+                                    <span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-3 py-1 rounded-full text-xs font-bold">Active</span>
+                                </div>
+                                <div class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p><span class="font-bold text-gray-900 dark:text-gray-200">Current Program:</span> Little Stars</p>
+                                    <p><span class="font-bold text-gray-900 dark:text-gray-200">Current Role:</span> Ensemble</p>
+                                </div>
+                                <div class="mt-4 flex gap-2">
+                                    <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Edit Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Programs Tab -->
+                <div id="programs" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Available Programs</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 [&>*:nth-child(3):last-child]:md:col-span-2 [&>*:nth-child(3):last-child]:md:w-1/2 [&>*:nth-child(3):last-child]:md:mx-auto [&>*:nth-child(3):last-child]:lg:col-span-1 [&>*:nth-child(3):last-child]:lg:w-full">
+                        <!-- We can reuse similar cards to the public site, but streamlined -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6">
+                            <span class="inline-block px-3 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded-full text-xs font-bold mb-3">Ages 4-6</span>
+                            <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-2">Little Stars</h3>
+                            <p class="text-sm text-gray-500 mb-6">Saturdays 9:00 AM (1 Hr)</p>
+                            <button class="w-full py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-medium hover:bg-primary hover:text-white transition-colors">Enroll a Child</button>
+                        </div>
+                        <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6">
+                            <span class="inline-block px-3 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded-full text-xs font-bold mb-3">Ages 7-10</span>
+                            <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-2">Young Performers</h3>
+                            <p class="text-sm text-gray-500 mb-6">Saturdays 10:30 AM (1.5 Hrs)</p>
+                            <button class="w-full py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-medium hover:bg-primary hover:text-white transition-colors">Enroll a Child</button>
+                        </div>
+                        <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-primary text-white transform rotate-45 translate-x-8 -translate-y-8 flex items-end justify-center pb-2 text-xs font-bold z-10"><span class="transform -rotate-45 block mb-1 ml-1">Enrolled</span></div>
+                            <span class="inline-block px-3 py-1 bg-secondary/10 text-secondary-dark dark:bg-secondary-dark/30 dark:text-secondary rounded-full text-xs font-bold mb-3">Ages 11-14</span>
+                            <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-2">Junior Actors</h3>
+                            <p class="text-sm text-gray-500 mb-6">Tue & Thu 4:30 PM (2 Hrs)</p>
+                            <button class="w-full py-2 bg-primary text-white rounded-lg font-medium cursor-default">Lily is Enrolled</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Enrollments Tab -->
+                <div id="enrollments" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Current Enrollments</h2>
+                    <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-x-auto">
+                        <table class="w-full text-left text-sm md:text-base">
+                            <thead>
+                                <tr class="bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
+                                    <th class="p-3 md:p-4 font-bold text-xs md:text-sm text-gray-600 dark:text-gray-300">Child</th>
+                                    <th class="p-3 md:p-4 font-bold text-xs md:text-sm text-gray-600 dark:text-gray-300">Program</th>
+                                    <th class="p-3 md:p-4 font-bold text-xs md:text-sm text-gray-600 dark:text-gray-300">Session</th>
+                                    <th class="p-3 md:p-4 font-bold text-xs md:text-sm text-gray-600 dark:text-gray-300">Enroll Date</th>
+                                    <th class="p-3 md:p-4 font-bold text-xs md:text-sm text-gray-600 dark:text-gray-300">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                <tr>
+                                    <td class="p-4 font-medium text-gray-900 dark:text-white">Lily Doe</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Junior Actors</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Spring 2026</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Jan 10, 2026</td>
+                                    <td class="p-4"><span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-medium text-gray-900 dark:text-white">Sam Doe</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Little Stars</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Spring 2026</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Jan 15, 2026</td>
+                                    <td class="p-4"><span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Active</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 5. Rehearsals Tab -->
+                <div id="rehearsals" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Rehearsal Schedule</h2>
+                    <div class="space-y-4">
+                        <!-- Item -->
+                        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-l-4 border-l-primary border-gray-100 dark:border-gray-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-gray-50 dark:bg-dark rounded-xl flex flex-col items-center justify-center border border-gray-200 dark:border-gray-700">
+                                    <span class="text-xs text-gray-500 font-bold uppercase">Feb</span>
+                                    <span class="text-lg font-bold text-gray-900 dark:text-white">14</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Scene 3 Blocking (Lily)</h3>
+                                    <p class="text-sm text-gray-500 flex items-center gap-1 mt-1"><i data-lucide="clock" class="w-4 h-4"></i> 4:30 PM - 6:30 PM</p>
+                                    <p class="text-sm text-gray-500 flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Main Studio</p>
+                                </div>
+                            </div>
+                            <div class="md:text-right">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">Junior Actors</span>
+                                <p class="text-sm text-gray-500 mt-2">Instructor: Sarah Jenkins</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item -->
+                        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-l-4 border-l-secondary border-gray-100 dark:border-gray-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-gray-50 dark:bg-dark rounded-xl flex flex-col items-center justify-center border border-gray-200 dark:border-gray-700">
+                                    <span class="text-xs text-gray-500 font-bold uppercase">Feb</span>
+                                    <span class="text-lg font-bold text-gray-900 dark:text-white">18</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Storybook Play (Sam)</h3>
+                                    <p class="text-sm text-gray-500 flex items-center gap-1 mt-1"><i data-lucide="clock" class="w-4 h-4"></i> 9:00 AM - 10:00 AM</p>
+                                    <p class="text-sm text-gray-500 flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Studio B</p>
+                                </div>
+                            </div>
+                            <div class="md:text-right">
+                                <span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-3 py-1 rounded-full text-xs font-bold">Little Stars</span>
+                                <p class="text-sm text-gray-500 mt-2">Instructor: Elena Rodriguez</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Performances Tab -->
+                <div id="performances" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Upcoming Performances</h2>
+                    
+                    <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto">
+                            <img src="https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=2071&auto=format&fit=crop" alt="Show" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:p-8 flex-grow flex flex-col justify-center">
+                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Cinderella: The Modern Tale</h3>
+                            <p class="text-primary font-bold text-sm mb-4">Featuring: Lily Doe (Fairy Godmother)</p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">Performance Date</p>
+                                    <p class="text-gray-900 dark:text-white font-medium flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i> Nov 12, 2026</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">Call Time</p>
+                                    <p class="text-gray-900 dark:text-white font-medium flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-400"></i> 5:00 PM (Show 7 PM)</p>
+                                </div>
+                                <div class="col-span-2">
+                                    <p class="text-xs text-gray-500 font-bold uppercase mb-1">Venue</p>
+                                    <p class="text-gray-900 dark:text-white font-medium flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i> Main City Auditorium (Backstage Entrance B)</p>
+                                </div>
+                            </div>
+                            
+                            <button class="px-6 py-2 bg-secondary text-gray-900 rounded-lg font-bold hover:bg-secondary-dark transition-colors self-start">Buy Parent Tickets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Role Assignments -->
+                <div id="roles" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Role Assignments</h2>
+                    <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6">
+                        <div class="flex items-start gap-6 border-b border-gray-100 dark:border-gray-800 pb-6">
+                            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl shrink-0"><i data-lucide="star"></i></div>
+                            <div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white">Lily Doe - Fairy Godmother</h3>
+                                <p class="text-gray-500 text-sm mb-3">Production: Cinderella</p>
+                                <div class="bg-gray-50 dark:bg-dark p-4 rounded-xl">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 font-medium mb-1">Instructor Notes:</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 italic">"Lily has been doing great with her projection. Please have her practice her monologue on page 24 focusing on comedic timing."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 pt-6">
+                            <div class="w-16 h-16 rounded-full bg-secondary/10 dark:bg-secondary-dark/30 flex items-center justify-center text-secondary-dark dark:text-secondary text-2xl shrink-0"><i data-lucide="users"></i></div>
+                            <div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white">Sam Doe - Town Ensemble</h3>
+                                <p class="text-gray-500 text-sm mb-3">Production: Winter Showcase</p>
+                                <div class="bg-gray-50 dark:bg-dark p-4 rounded-xl">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 font-medium mb-1">Instructor Notes:</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 italic">"Sam needs to wear plain black pants and a white t-shirt for the next rehearsal for costume fittings."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Photos & Videos -->
+                <div id="media" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white">Private Gallery</h2>
+                        <select class="border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 outline-none">
+                            <option>All Media</option>
+                            <option>Rehearsals</option>
+                            <option>Performances</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="relative group rounded-xl overflow-hidden aspect-square border border-gray-200 dark:border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1596701103250-93bc6d013093?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button class="text-white hover:text-primary"><i data-lucide="download" class="w-8 h-8"></i></button>
+                            </div>
+                        </div>
+                        <div class="relative group rounded-xl overflow-hidden aspect-square border border-gray-200 dark:border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1517456793572-1d8efd6dc135?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button class="text-white hover:text-primary"><i data-lucide="download" class="w-8 h-8"></i></button>
+                            </div>
+                        </div>
+                        <div class="relative group rounded-xl overflow-hidden aspect-square border border-gray-200 dark:border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                <i data-lucide="play-circle" class="w-12 h-12 text-white/80 group-hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Payments Tab -->
+                <div id="payments" class="dashboard-tab max-w-6xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Billing & Payments</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Due Payment -->
+                        <div class="md:col-span-2 bg-white dark:bg-dark-card rounded-2xl border border-primary/20 dark:border-primary-dark/50 shadow-sm p-6 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Spring Term 2026 - Installment 2</h3>
+                                    <p class="text-gray-500 text-sm mb-1">Invoice: #INV-2026-042</p>
+                                    <p class="text-primary-dark dark:text-primary-100 text-sm font-bold flex items-center gap-1"><i data-lucide="alert-circle" class="w-4 h-4"></i> Due: Feb 01, 2026 (Overdue)</p>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <p class="text-3xl font-bold text-gray-900 dark:text-white">$150.00</p>
+                                    <button class="px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-lg font-bold transition-colors flex items-center gap-2">
+                                        Pay Now <i data-lucide="credit-card" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods Placeholder -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6">
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-4">Payment Methods</h3>
+                            <div class="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg mb-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-5 bg-blue-900 rounded text-[8px] text-white flex items-center justify-center font-bold">VISA</div>
+                                    <span class="text-sm font-medium text-gray-900 dark:text-white">•••• 4242</span>
+                                </div>
+                                <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Default</span>
+                            </div>
+                            <button class="w-full py-2 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">+ Add Payment Method</button>
+                        </div>
+                    </div>
+
+                    <!-- Payment History -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+                        <div class="p-6 border-b border-gray-100 dark:border-gray-800">
+                            <h3 class="font-bold text-gray-900 dark:text-white">Payment History</h3>
+                        </div>
+                        <table class="w-full text-left whitespace-nowrap">
+                            <thead class="bg-gray-50 dark:bg-gray-800/50">
+                                <tr>
+                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Date</th>
+                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Description</th>
+                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Amount</th>
+                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                <tr>
+                                    <td class="p-4 text-sm text-gray-600 dark:text-gray-400">Jan 01, 2026</td>
+                                    <td class="p-4 text-sm text-gray-900 dark:text-white">Spring Term 2026 - Installment 1</td>
+                                    <td class="p-4 text-sm text-gray-900 dark:text-white font-medium">$150.00</td>
+                                    <td class="p-4"><span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Paid</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-sm text-gray-600 dark:text-gray-400">Nov 15, 2025</td>
+                                    <td class="p-4 text-sm text-gray-900 dark:text-white">Registration Fee</td>
+                                    <td class="p-4 text-sm text-gray-900 dark:text-white font-medium">$50.00</td>
+                                    <td class="p-4"><span class="bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Paid</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 10. Notifications Tab -->
+                <div id="notifications" class="dashboard-tab max-w-4xl mx-auto space-y-4">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Notifications</h2>
+                    
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0"><i data-lucide="megaphone" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Winter Showcase Tickets Available</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Parent pre-sale is now active. Use code STAGESPARK26 to book early.</p>
+                            <p class="text-xs text-gray-400 mt-2">2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-xl border border-primary/20 dark:border-primary-dark/30 shadow-sm flex items-start gap-4 bg-primary/5 dark:bg-primary-dark/5">
+                        <div class="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary-dark/50 flex items-center justify-center text-primary-dark shrink-0"><i data-lucide="alert-circle" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Payment Overdue</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Installment 2 for Spring Term is past due. Please process payment soon.</p>
+                            <p class="text-xs text-gray-400 mt-2">1 day ago</p>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex items-start gap-4 opacity-70">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 shrink-0"><i data-lucide="calendar-check" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Rehearsal Reminder</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Don't forget Lily's scene blocking rehearsal tomorrow at 4:30 PM.</p>
+                            <p class="text-xs text-gray-400 mt-2">2 days ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Profile & Settings Tab -->
+                <div id="profile" class="dashboard-tab max-w-4xl mx-auto space-y-6 hidden"></div>
+                <div id="settings" class="dashboard-tab max-w-4xl mx-auto space-y-6">
+                    <h2 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Profile & Settings</h2>
+                    
+                    <div class="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 md:p-8">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-6 border-b border-gray-100 dark:border-gray-700 pb-4">Personal Information</h3>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
+                                    <input type="text" value="Jane" class="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-dark px-4 py-2 text-gray-800 dark:text-gray-100 outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
+                                    <input type="text" value="Doe" class="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-dark px-4 py-2 text-gray-800 dark:text-gray-100 outline-none focus:border-primary">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                    <input type="email" value="jane@example.com" class="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-dark px-4 py-2 text-gray-800 dark:text-gray-100 outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
+                                    <input type="tel" value="(555) 123-4567" class="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-dark px-4 py-2 text-gray-800 dark:text-gray-100 outline-none focus:border-primary">
+                                </div>
+                            </div>
+                            <button type="button" class="px-6 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-lg mt-4">Save Changes</button>
+                        </form>
+
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-6 mt-12 border-b border-gray-100 dark:border-gray-700 pb-4">Preferences</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white">Email Notifications</p>
+                                    <p class="text-sm text-gray-500">Receive schedule updates and announcements via email.</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white">SMS Reminders</p>
+                                    <p class="text-sm text-gray-500">Get text messages for rehearsal reminders.</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-6 mt-12 border-b border-gray-100 dark:border-gray-700 pb-4">Security</h3>
+                        <button class="px-6 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-bold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Change Password</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Initialize Icons & Dashboard Logic -->
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sidebar Toggle Mobile
+            const sidebarBtn = document.getElementById('sidebar-toggle');
+            const closeBtn = document.getElementById('close-sidebar');
+            const sidebar = document.getElementById('dashboard-sidebar');
+
+            const toggleSidebar = () => {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    sidebar.classList.toggle('translate-x-full');
+                } else {
+                    sidebar.classList.toggle('-translate-x-full');
+                }
+            };
+
+            if (sidebarBtn) sidebarBtn.addEventListener('click', toggleSidebar);
+            if (closeBtn) closeBtn.addEventListener('click', toggleSidebar);
+
+            // Tab Navigation Logic
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabs = document.querySelectorAll('.dashboard-tab');
+            const pageTitle = document.getElementById('page-title');
+
+            navItems.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    
+                    // If target is profile, redirect it to settings for this mockup
+                    const effectiveTargetId = targetId === 'profile' ? 'settings' : targetId;
+
+                    // Update Active Tab Content
+                    tabs.forEach(tab => {
+                        if (tab.id === effectiveTargetId) {
+                            tab.classList.add('active');
+                        } else {
+                            tab.classList.remove('active');
+                        }
+                    });
+
+                    // Update Active Nav Styles
+                    navItems.forEach(nav => {
+                        nav.classList.remove('dashboard-sidebar-active', 'text-gray-900', 'dark:text-white');
+                        nav.classList.add('text-gray-600', 'dark:text-gray-400');
+                    });
+                    btn.classList.add('dashboard-sidebar-active');
+                    btn.classList.remove('text-gray-600', 'dark:text-gray-400');
+
+                    // Update Title
+                    pageTitle.textContent = btn.textContent.trim();
+
+                    // Close sidebar on mobile after clicking
+                    if (window.innerWidth < 1024) {
+                        toggleSidebar();
+                    }
+                });
+            });
+
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+            const setTheme = (isDark) => {
+                if (isDark) {
+                    htmlElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                } else {
+                    htmlElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                    lightIcon.classList.add('hidden');
+                    darkIcon.classList.remove('hidden');
+                }
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') setTheme(true);
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    setTheme(!htmlElement.classList.contains('dark'));
+                });
+            }
+
+            // RTL Toggle Logic
+            const rtlToggleBtn = document.getElementById('rtl-toggle');
+            const setRTL = (isRTL) => {
+                if (isRTL) {
+                    htmlElement.setAttribute('dir', 'rtl');
+                    localStorage.setItem('dir', 'rtl');
+                } else {
+                    htmlElement.setAttribute('dir', 'ltr');
+                    localStorage.setItem('dir', 'ltr');
+                }
+                // Force reload to apply sidebar translate classes correctly based on direction
+                window.location.reload(); 
+            };
+
+            // Only apply on click for Dashboard to handle sidebar translations
+            if (rtlToggleBtn) {
+                rtlToggleBtn.addEventListener('click', () => {
+                    setRTL(htmlElement.getAttribute('dir') !== 'rtl');
+                });
+            }
+            
+            // Initial RTL load
+            if (localStorage.getItem('dir') === 'rtl') {
+                htmlElement.setAttribute('dir', 'rtl');
+                // Adjust initial sidebar position class
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-full');
+                sidebar.classList.replace('lg:translate-x-0', 'lg:translate-x-0'); // lg overrides
+                
+                // Adjust main margin
+                const main = document.querySelector('main');
+                main.classList.remove('lg:ml-72');
+                main.classList.add('lg:mr-72');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

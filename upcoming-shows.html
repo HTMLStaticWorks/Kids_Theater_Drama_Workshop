@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Shows | Kids Theater & Drama Workshop</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Configuration and Styles -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body class="bg-light text-gray-900 dark:bg-dark dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
+
+    <!-- HEADER (EXACT MATCH) -->
+    <header class="fixed w-full top-0 z-50 glass shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex items-center gap-8">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="home2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="programs.html" class="hover:text-primary transition-colors">Programs</a>
+                    <a href="upcoming-shows.html" class="text-primary font-medium border-b-2 border-primary">Upcoming Shows</a>
+                    <a href="instructors.html" class="hover:text-primary transition-colors">Instructors</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                <a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
+                </nav>
+
+                <!-- Actions & Mobile Menu -->
+                <div class="flex items-center gap-2 xl:gap-4">
+                    <button id="theme-toggle" class="hidden xl:flex p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                        <i data-lucide="sun" id="theme-toggle-light-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                    <button id="rtl-toggle" class="hidden xl:flex p-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
+                    <a href="signup.html" class="hidden xl:flex bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-theater hover:shadow-lg">Sign Up</a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="xl:hidden p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home</a>
+                <a href="home2.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home 2</a>
+                <a href="about.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">About</a>
+                <a href="programs.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Programs</a>
+                <a href="upcoming-shows.html" class="block px-3 py-3 text-primary font-medium bg-primary/10 rounded-lg">Upcoming Shows</a>
+                <a href="instructors.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Instructors</a>
+                <a href="contact.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Dashboard</a>
+
+            <div class="flex items-center gap-4 px-3 py-2">
+                <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="theme-toggle-dark-icon w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                    <i data-lucide="sun" class="theme-toggle-light-icon w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                </button>
+                <button class="rtl-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Toggle RTL">
+                    <i data-lucide="arrow-left-right" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                </button>
+            </div>
+                <div class="border-t border-gray-200 dark:border-gray-800 my-4 pt-4 pb-4 px-2">
+                    <a href="signup.html" class="block text-center px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark shadow-md mx-2">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- SECTION 1: Shows Hero -->
+        <section class="relative min-h-[60vh] flex items-center bg-gray-900 overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=2071&auto=format&fit=crop" alt="Stage Lights" class="w-full h-full object-cover opacity-40 mix-blend-screen">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-4 w-full text-center" data-aos="fade-down" data-aos-duration="1200">
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-wide">
+                    Take Your <span class="text-secondary">Seats</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Experience the magic, the drama, and the pure joy of our students taking center stage in this season's spectacular lineup.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Upcoming Productions -->
+        <section class="py-24 bg-gray-900 relative">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Show Card 1 -->
+                    <div class="bg-gray-800 rounded-3xl overflow-hidden flex flex-col group border border-gray-700 hover:border-primary transition-colors" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-64 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1582711012124-a56cf82307a0?q=80&w=2140&auto=format&fit=crop" alt="Cinderella Show" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-gray-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">Junior Actors</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Cinderella: The Modern Tale</h3>
+                            <div class="space-y-3 mb-8 text-gray-400">
+                                <p class="flex items-center gap-3"><i data-lucide="calendar" class="w-5 h-5 text-secondary"></i> Nov 12 - 14, 2026</p>
+                                <p class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-secondary"></i> Main City Auditorium</p>
+                                <p class="flex items-center gap-3"><i data-lucide="clock" class="w-5 h-5 text-secondary"></i> 2 Hours (with intermission)</p>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="#" class="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold transition-colors">Buy Tickets</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Show Card 2 -->
+                    <div class="bg-gray-800 rounded-3xl overflow-hidden flex flex-col group border border-gray-700 hover:border-secondary transition-colors" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-64 relative overflow-hidden">
+                            <img src="assets/images/midsummer.jpg" alt="Shakespeare in the Park" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-gray-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">Teen Stage</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">A Midsummer Night's Dream</h3>
+                            <div class="space-y-3 mb-8 text-gray-400">
+                                <p class="flex items-center gap-3"><i data-lucide="calendar" class="w-5 h-5 text-secondary-dark"></i> Dec 05 - 08, 2026</p>
+                                <p class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-secondary-dark"></i> StageSpark Black Box Theater</p>
+                                <p class="flex items-center gap-3"><i data-lucide="clock" class="w-5 h-5 text-secondary-dark"></i> 2.5 Hours (with intermission)</p>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="#" class="block w-full text-center px-6 py-3 bg-secondary hover:bg-rose-600 text-white rounded-xl font-bold transition-colors">Buy Tickets</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Performance Calendar -->
+        <section class="py-24 bg-white dark:bg-dark-card relative border-y border-gray-200 dark:border-gray-800">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="text-center mb-12" data-aos="zoom-in">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Season <span class="text-primary">Calendar</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400">Plan your visits and don't miss a single performance.</p>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-dark p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800" data-aos="fade-up">
+                    <div class="flex justify-between items-center mb-8 border-b border-gray-200 dark:border-gray-700 pb-4">
+                        <button class="p-2 text-gray-500 hover:text-primary transition-colors"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">November 2026</h3>
+                        <button class="p-2 text-gray-500 hover:text-primary transition-colors"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                    </div>
+
+                    <!-- Calendar Layout -->
+                    <div class="space-y-4">
+                        <!-- Event Row -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary transition-colors">
+                            <div class="w-full sm:w-32 text-center sm:text-left flex-shrink-0 border-b sm:border-b-0 sm:border-r border-gray-200 dark:border-gray-700 pb-2 sm:pb-0 pr-0 sm:pr-4">
+                                <p class="text-3xl font-display font-bold text-primary">12</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 uppercase font-bold">Thursday</p>
+                            </div>
+                            <div class="flex-grow text-center sm:text-left">
+                                <h4 class="text-lg font-bold text-gray-900 dark:text-white">Cinderella: Opening Night</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Main City Auditorium • 7:00 PM</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="#" class="px-6 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-bold hover:bg-primary hover:text-white transition-colors text-sm">Tickets</a>
+                            </div>
+                        </div>
+
+                        <!-- Event Row -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary transition-colors">
+                            <div class="w-full sm:w-32 text-center sm:text-left flex-shrink-0 border-b sm:border-b-0 sm:border-r border-gray-200 dark:border-gray-700 pb-2 sm:pb-0 pr-0 sm:pr-4">
+                                <p class="text-3xl font-display font-bold text-primary">13</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 uppercase font-bold">Friday</p>
+                            </div>
+                            <div class="flex-grow text-center sm:text-left">
+                                <h4 class="text-lg font-bold text-gray-900 dark:text-white">Cinderella: Evening Performance</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Main City Auditorium • 7:30 PM</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="#" class="px-6 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-bold hover:bg-primary hover:text-white transition-colors text-sm">Tickets</a>
+                            </div>
+                        </div>
+
+                        <!-- Event Row (Sold Out) -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-100 dark:border-gray-700 opacity-60">
+                            <div class="w-full sm:w-32 text-center sm:text-left flex-shrink-0 border-b sm:border-b-0 sm:border-r border-gray-200 dark:border-gray-700 pb-2 sm:pb-0 pr-0 sm:pr-4">
+                                <p class="text-3xl font-display font-bold text-gray-400">14</p>
+                                <p class="text-sm text-gray-400 uppercase font-bold">Saturday</p>
+                            </div>
+                            <div class="flex-grow text-center sm:text-left">
+                                <h4 class="text-lg font-bold text-gray-500">Cinderella: Matinee</h4>
+                                <p class="text-gray-500 text-sm">Main City Auditorium • 2:00 PM</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <span class="px-6 py-2 bg-primary/10 text-primary-dark dark:bg-red-900/30 dark:text-primary-100 rounded-lg font-bold text-sm">Sold Out</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Featured Show -->
+        <section class="py-24 bg-dark text-white relative overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=2071&auto=format&fit=crop" alt="Little stars on stage" class="w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-transparent"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <span class="inline-block px-4 py-1 rounded-full border border-secondary text-secondary text-sm font-bold tracking-widest uppercase mb-6 shadow-theater">Winter Gala Showcase</span>
+                        <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">The Enchanted <br>Toy Shop</h2>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Our Little Stars and Young Performers unite for a magical evening where toys come to life after hours. A heartwarming story featuring original music, dazzling costumes, and unforgettable moments.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                            <div>
+                                <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Director</h4>
+                                <p class="text-lg">Amanda Clarke</p>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Venue</h4>
+                                <p class="text-lg">The Grand Playhouse</p>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Date</h4>
+                                <p class="text-lg text-primary-light font-bold">Dec 20, 2026</p>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Cast Size</h4>
+                                <p class="text-lg">65 Students</p>
+                            </div>
+                        </div>
+
+                        <a href="#" class="inline-flex items-center gap-2 text-secondary hover:text-white font-bold text-lg transition-colors group">
+                            Explore Cast & Details <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-2 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="relative hidden lg:block" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent z-10 bottom-0 top-1/2"></div>
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2070&auto=format&fit=crop" alt="Toy shop scene" class="rounded-3xl shadow-2xl rotate-3 relative z-0 border-8 border-white/10">
+                        <div class="absolute -bottom-10 -left-10 bg-secondary text-dark p-6 rounded-2xl z-20 shadow-xl font-bold text-2xl transform -rotate-6">
+                            Family Friendly!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Volunteer Backstage -->
+        <section class="py-24 px-4 bg-gray-50 dark:bg-dark-card border-b border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2" data-aos="fade-right">
+                    <h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">Want to Help <span class="text-secondary">Backstage?</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        It takes a village to put on a spectacular performance. We are always looking for enthusiastic parents and community members to volunteer for our upcoming shows.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                        Whether you have skills in costume design, set building, hair and makeup, or simply want to help usher guests to their seats, your contribution makes the magic possible!
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full font-bold text-lg transition-all">
+                        Volunteer Now <i data-lucide="heart" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop" alt="Backstage volunteers" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Reserve Your Seat CTA -->
+        <section class="relative py-32 px-4 overflow-hidden bg-primary">
+
+
+            <div class="relative z-10 max-w-3xl mx-auto text-center text-white" data-aos="zoom-in">
+                <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
+                    <i data-lucide="ticket" class="w-10 h-10 text-white"></i>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">Don't Miss the Magic</h2>
+                <p class="text-xl text-primary-100 mb-10">Our shows frequently sell out. Secure your tickets early and be part of an unforgettable theatrical experience.</p>
+                
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 inline-block">
+                    <a href="#" class="inline-block px-12 py-5 bg-white text-primary-dark rounded-full font-bold text-xl hover:bg-gray-100 transition-all shadow-theater hover:scale-105">
+                        Purchase Tickets Now
+                    </a>
+                    <p class="mt-4 text-sm text-primary-100">* Parents of enrolled students receive early access.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (EXACT MATCH) -->
+    <footer class="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Brand -->
+            <div>
+                <a href="index.html" class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Empowering children through the magic of theater. A premium drama workshop for the stars of tomorrow.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                    <li><a href="instructors.html" class="hover:text-primary transition-colors">Our Instructors</a></li>
+                    <li><a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a></li>
+                    <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Programs -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Our Programs</h4>
+                <ul class="space-y-3">
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Little Stars (4-6)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Young Performers (7-10)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Junior Actors (11-14)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Teen Stage (15-18)</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Newsletter</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive updates on new programs and upcoming shows.</p>
+                <form class="flex" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email address" class="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-l-lg focus:outline-none focus:border-primary text-gray-900 dark:text-white">
+                    <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg transition-colors text-white">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <p>&copy; 2026 StageSpark Kids Theater & Drama Workshop. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Terms of Service</a>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="ml-2 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors group" title="Back to top">
+                    <i data-lucide="arrow-up" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <!-- Main Script -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

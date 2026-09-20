@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Theater & Drama Workshop | Home</title>
+    <meta name="description" content="A premium kids theater and drama workshop focusing on acting, stage performance, and confidence building.">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Configuration and Styles -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body class="bg-light text-gray-900 dark:bg-dark dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 glass shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex items-center gap-8">
+                    <a href="index.html" class="text-primary font-medium border-b-2 border-primary">Home</a>
+                    <a href="home2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="programs.html" class="hover:text-primary transition-colors">Programs</a>
+                    <a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a>
+                    <a href="instructors.html" class="hover:text-primary transition-colors">Instructors</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                <a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
+                </nav>
+
+                <!-- Actions & Mobile Menu -->
+                <div class="flex items-center gap-2 xl:gap-4">
+                    <button id="theme-toggle" class="hidden xl:flex p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                        <i data-lucide="sun" id="theme-toggle-light-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                    <button id="rtl-toggle" class="hidden xl:flex p-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
+                    <a href="signup.html" class="hidden xl:flex bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-theater hover:shadow-lg">Sign Up</a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="xl:hidden p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="block px-3 py-3 text-primary font-medium bg-primary/10 rounded-lg">Home</a>
+                <a href="home2.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home 2</a>
+                <a href="about.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">About</a>
+                <a href="programs.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Programs</a>
+                <a href="upcoming-shows.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Upcoming Shows</a>
+                <a href="instructors.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Instructors</a>
+                <a href="contact.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Dashboard</a>
+
+            <div class="flex items-center gap-4 px-3 py-2">
+                <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="theme-toggle-dark-icon w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                    <i data-lucide="sun" class="theme-toggle-light-icon w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                </button>
+                <button class="rtl-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Toggle RTL">
+                    <i data-lucide="arrow-left-right" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                </button>
+            </div>
+                <div class="border-t border-gray-200 dark:border-gray-800 my-4 pt-4 pb-4 px-2">
+                    <a href="signup.html" class="block text-center px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark shadow-md mx-2">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- SECTION 1: Cinematic Hero -->
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-dark">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/hero-bg.jpg" alt="Theater stage" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-transparent"></div>
+            </div>
+            
+            <!-- Theatrical Stage Light Effect -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] opacity-30 z-0 pointer-events-none" style="background: radial-gradient(ellipse at top, rgba(107,33,168,0.8), transparent 60%);"></div>
+
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16" data-aos="zoom-in" data-aos-duration="1200">
+                <span class="inline-block py-1 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary font-medium tracking-widest text-sm mb-6 uppercase">Where Imagination Takes Center Stage</span>
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Unleash Your Child's <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary">Creative Potential</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Join our premium theater and drama workshops designed to build confidence, teamwork, and artistic expression in young performers.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="programs.html" class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary-dark text-white rounded-full font-semibold transition-all shadow-theater hover:scale-105 text-lg">Explore Programs</a>
+                    <a href="upcoming-shows.html" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white text-white rounded-full font-semibold transition-all hover:bg-white/10 text-lg">Upcoming Shows</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Our Theater Story -->
+        <section class="py-24 px-4 relative bg-light dark:bg-dark">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative" data-aos="fade-right">
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-secondary/20 rounded-full blur-2xl"></div>
+                        <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?q=80&w=2070&auto=format&fit=crop" alt="Theater workshop session" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover aspect-[4/3]">
+                        <div class="absolute -bottom-10 right-0 md:-right-10 bg-white dark:bg-dark-card p-6 rounded-2xl shadow-xl z-20 border border-gray-100 dark:border-gray-800">
+                            <p class="font-display text-4xl font-bold text-primary mb-1">15+</p>
+                            <p class="text-gray-600 dark:text-gray-400 font-medium text-sm">Years of Experience</p>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-left">
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Nurturing Tomorrow's <span class="text-primary">Stars</span> Today</h2>
+                        <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+                            At StageSpark, we believe that every child has a unique voice waiting to be heard. Our professional instructors guide students through the magical world of theater, helping them discover their hidden talents while building essential life skills in a supportive, creative environment.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div>
+                                <div class="flex items-center gap-4 mb-2">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <i data-lucide="users"></i>
+                                    </div>
+                                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white">2.5k+</h3>
+                                </div>
+                                <p class="text-gray-500 dark:text-gray-400 font-medium">Young Performers</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-4 mb-2">
+                                    <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary-dark">
+                                        <i data-lucide="clapperboard"></i>
+                                    </div>
+                                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white">120+</h3>
+                                </div>
+                                <p class="text-gray-500 dark:text-gray-400 font-medium">Annual Productions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Programs by Age -->
+        <section class="py-24 px-4 bg-gray-50 dark:bg-[#0b1120] spotlight">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Programs Tailored for <span class="text-primary">Every Stage</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">From their first steps on stage to advanced character development, we have the perfect program for your child's age and experience level.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center">
+                    <!-- Little Stars -->
+                    <div class="bg-white dark:bg-dark-card rounded-3xl overflow-hidden shadow-lg hover-float w-full max-w-md group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-48 bg-gradient-to-br from-pink-400 to-secondary relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2070&auto=format&fit=crop')] mix-blend-overlay opacity-40 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
+                            <h3 class="font-display text-4xl font-bold text-white relative z-10 shadow-sm">Little Stars</h3>
+                        </div>
+                        <div class="p-8">
+                            <span class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 text-sm font-bold mb-4">Ages 4–6</span>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">An enchanting introduction to the performing arts. Through imaginative play, storytelling, and creative movement, our youngest performers build confidence and make new friends.</p>
+                            <a href="programs.html" class="flex items-center gap-2 text-primary font-semibold group-hover:text-primary-dark transition-colors">
+                                View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Young Performers -->
+                    <div class="bg-white dark:bg-dark-card rounded-3xl overflow-hidden shadow-lg hover-float w-full max-w-md group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 bg-primary-dark relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?q=80&w=2070&auto=format&fit=crop')] mix-blend-overlay opacity-40 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
+                            <h3 class="font-display text-4xl font-bold text-white relative z-10 shadow-sm">Young Performers</h3>
+                        </div>
+                        <div class="p-8">
+                            <span class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 text-sm font-bold mb-4">Ages 7–10</span>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">Dive deeper into character creation, stage presence, and ensemble work. Students learn the fundamentals of acting while preparing for exciting showcase performances.</p>
+                            <a href="programs.html" class="flex items-center gap-2 text-primary font-semibold group-hover:text-primary-dark transition-colors">
+                                View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Junior Actors -->
+                    <div class="bg-white dark:bg-dark-card rounded-3xl overflow-hidden shadow-lg hover-float w-full max-w-md group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-48 bg-secondary relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?q=80&w=2074&auto=format&fit=crop')] mix-blend-overlay opacity-40 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
+                            <h3 class="font-display text-4xl font-bold text-white relative z-10 shadow-sm">Junior Actors</h3>
+                        </div>
+                        <div class="p-8">
+                            <span class="inline-block px-4 py-1 rounded-full bg-secondary/10 text-secondary-dark dark:bg-secondary-dark/30 dark:text-secondary text-sm font-bold mb-4">Ages 11–14</span>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">For middle schoolers ready to tackle more complex scenes and scripts. Focuses on emotional range, vocal projection, and advanced improvisation techniques.</p>
+                            <a href="programs.html" class="flex items-center gap-2 text-primary font-semibold group-hover:text-primary-dark transition-colors">
+                                View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Teen Stage -->
+                    <div class="bg-white dark:bg-dark-card rounded-3xl overflow-hidden shadow-lg hover-float w-full max-w-md group sm:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300">
+                        <div class="h-48 bg-gradient-to-br from-secondary to-amber-600 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520630737966-d41a3f65ee68?q=80&w=2070&auto=format&fit=crop')] mix-blend-overlay opacity-40 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
+                            <h3 class="font-display text-4xl font-bold text-white relative z-10 shadow-sm">Teen Stage</h3>
+                        </div>
+                        <div class="p-8">
+                            <span class="inline-block px-4 py-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 text-sm font-bold mb-4">Ages 15–18</span>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">A rigorous, pre-professional workshop for teens serious about performing. Includes masterclasses, monologue preparation, and full-scale theatrical productions.</p>
+                            <a href="programs.html" class="flex items-center gap-2 text-primary font-semibold group-hover:text-primary-dark transition-colors">
+                                View Details <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Featured Production -->
+        <section class="py-24 px-4 bg-light dark:bg-dark">
+            <div class="max-w-7xl mx-auto bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative" data-aos="flip-up" data-aos-duration="1000">
+                <!-- Background Image -->
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1527267207156-f483c616fcb7?q=80&w=2070&auto=format&fit=crop" alt="The Lion King Jr Production" class="w-full h-full object-cover opacity-30 mix-blend-luminosity">
+                    <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+                </div>
+
+                <div class="relative z-10 p-8 md:p-16 flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1 text-left">
+                        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Featured Past Production</span>
+                        <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">The Magic <br>Forest Tale</h2>
+                        <p class="text-gray-300 text-lg mb-8 max-w-xl">
+                            Our spectacular Spring 2026 showcase featuring 45 talented students from the Junior Actors program. A breathtaking journey of courage, friendship, and spectacular musical numbers.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-8 mb-8">
+                            <div>
+                                <p class="text-gray-400 text-sm uppercase tracking-wide">Lead Cast</p>
+                                <p class="text-white font-medium">Sarah Jenkins, Michael Chang</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm uppercase tracking-wide">Director</p>
+                                <p class="text-white font-medium">Elena Rodriguez</p>
+                            </div>
+                        </div>
+
+                                            </div>
+                    
+                    <div class="w-full md:w-1/3">
+                        <div class="border-4 border-white/20 p-2 rounded-lg transform rotate-2 hover:rotate-0 transition-transform duration-500 bg-white/5 backdrop-blur-sm">
+                            <img src="assets/images/magic-forest-poster.jpg" alt="Production Poster" class="w-full rounded shadow-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Why Kids Love Theater -->
+        <section class="py-24 px-4 bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Beyond the <span class="text-secondary-dark">Curtain</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Theater education provides benefits that extend far beyond the stage, shaping well-rounded, confident individuals.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 [&>*:nth-child(3):last-child]:md:col-span-2 [&>*:nth-child(3):last-child]:md:w-1/2 [&>*:nth-child(3):last-child]:md:mx-auto [&>*:nth-child(3):last-child]:lg:col-span-1 [&>*:nth-child(3):last-child]:lg:w-full">
+                    <!-- Feature Blocks -->
+                    <div class="bg-white dark:bg-dark p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-gray-100 dark:border-gray-800 hover:border-primary/50" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform group-hover:bg-primary group-hover:text-white">
+                            <i data-lucide="smile" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Confidence Building</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Performing helps children overcome shyness and believe in their own abilities, translating to success in all areas of life.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-gray-100 dark:border-gray-800 hover:border-primary/50" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary-dark mb-6 group-hover:scale-110 transition-transform group-hover:bg-secondary group-hover:text-gray-900">
+                            <i data-lucide="palette" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Creative Expression</h3>
+                        <p class="text-gray-600 dark:text-gray-400">A safe space for kids to explore emotions, think outside the box, and express their unique perspectives through art.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-gray-100 dark:border-gray-800 hover:border-primary/50" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-secondary/10 dark:bg-secondary-dark/30 rounded-xl flex items-center justify-center text-secondary-dark dark:text-secondary mb-6 group-hover:scale-110 transition-transform group-hover:bg-secondary group-hover:text-white">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Teamwork</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Theater is entirely collaborative. Students learn to rely on each other, listen actively, and work towards a common goal.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-gray-100 dark:border-gray-800 hover:border-primary/50" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/30 rounded-xl flex items-center justify-center text-primary dark:text-primary-100 mb-6 group-hover:scale-110 transition-transform group-hover:bg-primary group-hover:text-white">
+                            <i data-lucide="mic" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Public Speaking</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Learning voice projection and articulation helps children communicate clearly and effectively in front of any audience.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-gray-100 dark:border-gray-800 hover:border-primary/50" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/30 rounded-xl flex items-center justify-center text-primary dark:text-primary-100 mb-6 group-hover:scale-110 transition-transform group-hover:bg-primary group-hover:text-white">
+                            <i data-lucide="star" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Stage Skills</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Professional training in blocking, memorization, spatial awareness, and stage etiquette from industry experts.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-gray-100 dark:border-gray-800 hover:border-primary/50" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary-dark mb-6 group-hover:scale-110 transition-transform group-hover:bg-secondary group-hover:text-white">
+                            <i data-lucide="sparkles" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Imagination</h3>
+                        <p class="text-gray-600 dark:text-gray-400">We nurture creativity, encouraging students to invent, envision, and fully inhabit wildly different worlds and characters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Upcoming Performance CTA -->
+        <section class="relative py-32 px-4 overflow-hidden bg-primary-dark">
+            <div class="absolute inset-0 opacity-20">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974&auto=format&fit=crop" alt="Theater curtain" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Curtain opening animation lines -->
+            <div class="absolute top-0 left-0 w-1/4 h-full bg-gradient-to-r from-black/60 to-transparent transform -skew-x-12 z-0" data-aos="fade-right" data-aos-duration="1500"></div>
+            <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-black/60 to-transparent transform skew-x-12 z-0" data-aos="fade-left" data-aos-duration="1500"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-secondary text-gray-900 mb-8 shadow-theater animate-bounce">
+                    <i data-lucide="ticket" class="w-10 h-10"></i>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">Winter Showcase 2026</h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Join us for an unforgettable evening as our talented young performers take the stage. Don't miss the magic!</p>
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-12 text-white">
+                    <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                        <i data-lucide="calendar" class="w-6 h-6 mb-2 mx-auto text-secondary"></i>
+                        <p class="font-bold text-xl">Dec 15, 2026</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                        <i data-lucide="clock" class="w-6 h-6 mb-2 mx-auto text-secondary"></i>
+                        <p class="font-bold text-xl">7:00 PM</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                        <i data-lucide="map-pin" class="w-6 h-6 mb-2 mx-auto text-secondary"></i>
+                        <p class="font-bold text-xl">Grand Stage, NY</p>
+                    </div>
+                </div>
+
+                <a href="upcoming-shows.html" class="inline-block px-10 py-5 bg-white text-primary-dark rounded-full font-bold text-xl hover:bg-gray-100 transition-all shadow-theater hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
+                    Reserve Your Seat
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Brand -->
+            <div>
+                <a href="index.html" class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                </a>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Empowering children through the magic of theater. A premium drama workshop for the stars of tomorrow.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                    <li><a href="instructors.html" class="hover:text-primary transition-colors">Our Instructors</a></li>
+                    <li><a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a></li>
+                    <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Programs -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Our Programs</h4>
+                <ul class="space-y-3">
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Little Stars (4-6)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Young Performers (7-10)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Junior Actors (11-14)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Teen Stage (15-18)</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Newsletter</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive updates on new programs and upcoming shows.</p>
+                <form class="flex" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email address" class="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-l-lg focus:outline-none focus:border-primary text-gray-900 dark:text-white">
+                    <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg transition-colors text-white">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <p>&copy; 2026 StageSpark Kids Theater & Drama Workshop. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Terms of Service</a>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="ml-2 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors group" title="Back to top">
+                    <i data-lucide="arrow-up" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <!-- Main Script -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
