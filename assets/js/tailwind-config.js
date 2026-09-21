@@ -8,6 +8,7 @@ tailwind.config = {
             colors: {
                 primary: '#6b21a8', // Purple
                 'primary-dark': '#4c1d95',
+                'primary-100': '#f3e8ff', // Light Purple for dark mode contrast
                 secondary: '#fbbf24', // Amber/Gold
                 'secondary-dark': '#d97706',
                 dark: '#0f172a',

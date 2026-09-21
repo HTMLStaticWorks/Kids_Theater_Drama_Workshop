@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs | Kids Theater & Drama Workshop</title>
-    
+
     <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <!-- Custom Configuration and Styles -->
     <script src="assets/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
+
 <body class="bg-light text-gray-900 dark:bg-dark dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
 
     <!-- HEADER (EXACT MATCH) -->
@@ -23,10 +25,12 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo & Brand -->
                 <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
                         <i data-lucide="sparkles" class="w-6 h-6"></i>
                     </div>
-                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                    <span
+                        class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -38,20 +42,28 @@
                     <a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a>
                     <a href="instructors.html" class="hover:text-primary transition-colors">Instructors</a>
                     <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
-                <a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
+                    <a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
                 </nav>
 
                 <!-- Actions & Mobile Menu -->
                 <div class="flex items-center gap-2 xl:gap-4">
-                    <button id="theme-toggle" class="hidden xl:flex p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
-                        <i data-lucide="sun" id="theme-toggle-light-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                    <button id="theme-toggle"
+                        class="hidden xl:flex p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="moon" id="theme-toggle-dark-icon"
+                            class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                        <i data-lucide="sun" id="theme-toggle-light-icon"
+                            class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
                     </button>
-                    <button id="rtl-toggle" class="hidden xl:flex p-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
-                    <a href="signup.html" class="hidden xl:flex bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-theater hover:shadow-lg">Sign Up</a>
-                    
+                    <button id="rtl-toggle"
+                        class="hidden xl:flex p-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
+                    <a href="signup.html"
+                        class="hidden xl:flex bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-theater hover:shadow-lg">Sign
+                        Up</a>
+
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="xl:hidden p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <button id="mobile-menu-btn"
+                        class="xl:hidden p-2 text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                         <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
                         <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
                     </button>
@@ -62,27 +74,38 @@
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
             <a href="index.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home</a>
-                <a href="home2.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home 2</a>
-                <a href="about.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">About</a>
-                <a href="programs.html" class="block px-3 py-3 text-primary font-medium bg-primary/10 rounded-lg">Programs</a>
-                <a href="upcoming-shows.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Upcoming Shows</a>
-                <a href="instructors.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Instructors</a>
-                <a href="contact.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Contact</a>
-                <a href="dashboard.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Dashboard</a>
+            <a href="home2.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Home 2</a>
+            <a href="about.html" class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">About</a>
+            <a href="programs.html"
+                class="block px-3 py-3 text-primary font-medium bg-primary/10 rounded-lg">Programs</a>
+            <a href="upcoming-shows.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Upcoming Shows</a>
+            <a href="instructors.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Instructors</a>
+            <a href="contact.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Contact</a>
+            <a href="dashboard.html"
+                class="block px-3 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Dashboard</a>
 
             <div class="flex items-center gap-4 px-3 py-2">
-                <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                    <i data-lucide="moon" class="theme-toggle-dark-icon w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
+                <button
+                    class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon"
+                        class="theme-toggle-dark-icon w-5 h-5 text-gray-600 dark:text-gray-300 hidden"></i>
                     <i data-lucide="sun" class="theme-toggle-light-icon w-5 h-5 text-gray-600 dark:text-gray-300"></i>
                 </button>
-                <button class="rtl-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Toggle RTL">
+                <button
+                    class="rtl-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    title="Toggle RTL">
                     <i data-lucide="arrow-left-right" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
                 </button>
             </div>
-                <div class="border-t border-gray-200 dark:border-gray-800 my-4 pt-4 pb-4 px-2">
-                    <a href="signup.html" class="block text-center px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark shadow-md mx-2">Sign Up</a>
-                </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 my-4 pt-4 pb-4 px-2">
+                <a href="signup.html"
+                    class="block text-center px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark shadow-md mx-2">Sign
+                    Up</a>
             </div>
+        </div>
         </div>
     </header>
 
@@ -90,27 +113,39 @@
         <!-- SECTION 1: Programs Hero -->
         <section class="relative pt-32 pb-24 px-4 bg-gray-50 dark:bg-dark-card overflow-hidden">
             <div class="absolute inset-0 opacity-10">
-                <img src="https://images.unsplash.com/photo-1585699324551-f6c309eedeca?q=80&w=2070&auto=format&fit=crop" alt="Abstract Theater" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1585699324551-f6c309eedeca?q=80&w=2070&auto=format&fit=crop"
+                    alt="Abstract Theater" class="w-full h-full object-cover">
             </div>
             <div class="relative z-10 max-w-4xl mx-auto text-center" data-aos="fade-up">
-                <h1 class="font-display text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">Our <span class="text-primary">Programs</span></h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">Discover a world of imagination and self-expression. We offer comprehensive theater programs tailored to specific age groups, ensuring the perfect balance of challenge and support.</p>
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">Our <span
+                        class="text-primary">Programs</span></h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400">Discover a world of imagination and self-expression.
+                    We offer comprehensive theater programs tailored to specific age groups, ensuring the perfect
+                    balance of challenge and support.</p>
             </div>
         </section>
 
         <!-- SECTION 2: Programs by Age -->
         <section class="py-24 px-4 bg-white dark:bg-dark">
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
                     <!-- Ages 4-6 -->
-                    <div class="flex flex-col md:flex-row gap-6 bg-gray-50 dark:bg-dark-card p-6 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors" data-aos="fade-right">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0 rounded-2xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop" alt="Little Kids Acting" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="flex flex-col md:flex-row bg-gray-50 dark:bg-dark-card rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors overflow-hidden"
+                        data-aos="fade-right">
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop"
+                                alt="Little Kids Acting"
+                                class="w-full h-full min-h-[12rem] object-cover hover:scale-110 transition-transform duration-500">
                         </div>
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded-full text-xs font-bold mb-3">Ages 4-6</span>
-                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Little Stars</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">A joyful introduction to theater using games, storytelling, and imaginative play to build confidence and coordination.</p>
+                        <div class="p-6">
+                            <span
+                                class="inline-block px-3 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded-full text-xs font-bold mb-3">Ages
+                                4-6</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Little Stars
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">A joyful introduction to theater
+                                using games, storytelling, and imaginative play to build confidence and coordination.
+                            </p>
                             <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1 mb-4">
                                 <li>• Storybook roleplay</li>
                                 <li>• Expressive movement</li>
@@ -121,14 +156,22 @@
                     </div>
 
                     <!-- Ages 7-10 -->
-                    <div class="flex flex-col md:flex-row gap-6 bg-gray-50 dark:bg-dark-card p-6 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors" data-aos="fade-left">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0 rounded-2xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=2069&auto=format&fit=crop" alt="Young kids on stage" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="flex flex-col md:flex-row bg-gray-50 dark:bg-dark-card rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors overflow-hidden"
+                        data-aos="fade-left">
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=2069&auto=format&fit=crop"
+                                alt="Young kids on stage"
+                                class="w-full h-full min-h-[12rem] object-cover object-right hover:scale-110 transition-transform duration-500">
                         </div>
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded-full text-xs font-bold mb-3">Ages 7-10</span>
-                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Young Performers</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Diving into actual scripts, students learn the fundamentals of stagecraft, character work, and working as an ensemble.</p>
+                        <div class="p-6">
+                            <span
+                                class="inline-block px-3 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded-full text-xs font-bold mb-3">Ages
+                                7-10</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Young
+                                Performers</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Diving into actual scripts,
+                                students learn the fundamentals of stagecraft, character work, and working as an
+                                ensemble.</p>
                             <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1 mb-4">
                                 <li>• Script reading & analysis</li>
                                 <li>• Basic improvisation</li>
@@ -139,14 +182,21 @@
                     </div>
 
                     <!-- Ages 11-14 -->
-                    <div class="flex flex-col md:flex-row gap-6 bg-gray-50 dark:bg-dark-card p-6 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors" data-aos="fade-right">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0 rounded-2xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1514533450685-4493e01d1fdc?q=80&w=2074&auto=format&fit=crop" alt="Pre-teens acting" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="flex flex-col md:flex-row bg-gray-50 dark:bg-dark-card rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors overflow-hidden"
+                        data-aos="fade-right">
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1514533450685-4493e01d1fdc?q=80&w=2074&auto=format&fit=crop"
+                                alt="Pre-teens acting"
+                                class="w-full h-full min-h-[12rem] object-cover hover:scale-110 transition-transform duration-500">
                         </div>
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-secondary/10 text-secondary-dark dark:bg-secondary-dark/30 dark:text-secondary rounded-full text-xs font-bold mb-3">Ages 11-14</span>
-                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Junior Actors</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">A deep dive into emotional depth, comedic timing, and dramatic scene work to prepare for more complex roles.</p>
+                        <div class="p-6">
+                            <span
+                                class="inline-block px-3 py-1 bg-secondary/10 text-secondary-dark dark:bg-secondary-dark/30 dark:text-secondary rounded-full text-xs font-bold mb-3">Ages
+                                11-14</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Junior Actors
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">A deep dive into emotional depth,
+                                comedic timing, and dramatic scene work to prepare for more complex roles.</p>
                             <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1 mb-4">
                                 <li>• Scene study</li>
                                 <li>• Advanced character development</li>
@@ -157,14 +207,22 @@
                     </div>
 
                     <!-- Ages 15-18 -->
-                    <div class="flex flex-col md:flex-row gap-6 bg-gray-50 dark:bg-dark-card p-6 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors" data-aos="fade-left">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0 rounded-2xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2151&auto=format&fit=crop" alt="Teens on stage" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="flex flex-col md:flex-row bg-gray-50 dark:bg-dark-card rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary transition-colors overflow-hidden"
+                        data-aos="fade-left">
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2151&auto=format&fit=crop"
+                                alt="Teens on stage"
+                                class="w-full h-full min-h-[12rem] object-cover hover:scale-110 transition-transform duration-500">
                         </div>
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-xs font-bold mb-3">Ages 15-18</span>
-                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Teen Stage</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">A rigorous program for serious performers focusing on mastering classical and contemporary texts, monologues, and full productions.</p>
+                        <div class="p-6">
+                            <span
+                                class="inline-block px-3 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-xs font-bold mb-3">Ages
+                                15-18</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Teen Stage
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">A rigorous program for serious
+                                performers focusing on mastering classical and contemporary texts, monologues, and full
+                                productions.</p>
                             <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1 mb-4">
                                 <li>• Classical text (Shakespeare)</li>
                                 <li>• Method acting techniques</li>
@@ -181,40 +239,54 @@
         <section class="py-24 bg-gray-900 text-white relative">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="text-center mb-16" data-aos="zoom-in">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">The Complete <span class="text-secondary">Curriculum</span></h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">Our holistic approach ensures that students develop all necessary skills to become versatile, confident performers.</p>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">The Complete <span
+                            class="text-secondary">Curriculum</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Our holistic approach ensures that students develop all
+                        necessary skills to become versatile, confident performers.</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     <!-- Cards -->
-                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group" data-aos="fade-up" data-aos-delay="0">
-                        <i data-lucide="mic-2" class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <i data-lucide="mic-2"
+                            class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
                         <h4 class="font-bold text-xl mb-2">Voice & Diction</h4>
                         <p class="text-sm text-gray-400">Breath control, projection, and articulation.</p>
                     </div>
-                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group" data-aos="fade-up" data-aos-delay="100">
-                        <i data-lucide="activity" class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <i data-lucide="activity"
+                            class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
                         <h4 class="font-bold text-xl mb-2">Stage Movement</h4>
                         <p class="text-sm text-gray-400">Physicality, spatial awareness, and choreography.</p>
                     </div>
-                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group" data-aos="fade-up" data-aos-delay="200">
-                        <i data-lucide="zap" class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="zap"
+                            class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
                         <h4 class="font-bold text-xl mb-2">Improvisation</h4>
                         <p class="text-sm text-gray-400">Thinking on your feet and spontaneous creativity.</p>
                     </div>
-                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group" data-aos="fade-up" data-aos-delay="300">
-                        <i data-lucide="users" class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <i data-lucide="users"
+                            class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
                         <h4 class="font-bold text-xl mb-2">Character Work</h4>
                         <p class="text-sm text-gray-400">Developing backstory, emotion, and objectives.</p>
                     </div>
-                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group" data-aos="fade-up" data-aos-delay="400">
-                        <i data-lucide="book-open" class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <i data-lucide="book-open"
+                            class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
                         <h4 class="font-bold text-xl mb-2">Script Analysis</h4>
                         <p class="text-sm text-gray-400">Breaking down scenes and understanding subtext.</p>
                     </div>
-                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group" data-aos="fade-up" data-aos-delay="500">
-                        <i data-lucide="star" class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="font-bold text-xl mb-2">Stage Performance</h4>
+                    <div class="p-6 border border-gray-700 rounded-2xl hover:bg-gray-800 transition-colors text-center group"
+                        data-aos="fade-up" data-aos-delay="500">
+                        <i data-lucide="star"
+                            class="w-10 h-10 mx-auto text-secondary mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-xl mb-2">Stage Show</h4>
                         <p class="text-sm text-gray-400">Bringing it all together for a live audience.</p>
                     </div>
                 </div>
@@ -225,11 +297,14 @@
         <section id="schedule" class="py-24 bg-gray-50 dark:bg-dark">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-16" data-aos="fade-down">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Spring 2026 <span class="text-primary">Schedule</span></h2>
-                    <p class="text-gray-600 dark:text-gray-400">Find the perfect time slot for your child's age group.</p>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Spring
+                        2026 <span class="text-primary">Schedule</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400">Find the perfect time slot for your child's age group.
+                    </p>
                 </div>
 
-                <div class="overflow-x-auto rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800" data-aos="fade-up">
+                <div class="overflow-x-auto rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800"
+                    data-aos="fade-up">
                     <table class="w-full text-left bg-white dark:bg-dark-card border-collapse">
                         <thead>
                             <tr class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white">
@@ -248,8 +323,11 @@
                                 <td class="p-4 text-gray-600 dark:text-gray-400">4-6</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">Saturdays</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">9:00 AM (1 Hr)</td>
-                                <td class="p-4"><span class="px-2 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded text-xs font-bold">Open</span></td>
-                                <td class="p-4 text-right"><a href="signup.html" class="text-primary font-bold hover:underline">Enroll</a></td>
+                                <td class="p-4"><span
+                                        class="px-2 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded text-xs font-bold">Open</span>
+                                </td>
+                                <td class="p-4 text-right"><a href="signup.html"
+                                        class="text-primary font-bold hover:underline">Enroll</a></td>
                             </tr>
                             <!-- Row 2 -->
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
@@ -257,8 +335,11 @@
                                 <td class="p-4 text-gray-600 dark:text-gray-400">7-10</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">Saturdays</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">10:30 AM (1.5 Hrs)</td>
-                                <td class="p-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 rounded text-xs font-bold">Few Spots Left</span></td>
-                                <td class="p-4 text-right"><a href="signup.html" class="text-primary font-bold hover:underline">Enroll</a></td>
+                                <td class="p-4"><span
+                                        class="px-2 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 rounded text-xs font-bold">Few
+                                        Spots Left</span></td>
+                                <td class="p-4 text-right"><a href="signup.html"
+                                        class="text-primary font-bold hover:underline">Enroll</a></td>
                             </tr>
                             <!-- Row 3 -->
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
@@ -266,8 +347,11 @@
                                 <td class="p-4 text-gray-600 dark:text-gray-400">11-14</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">Tues & Thurs</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">4:30 PM (2 Hrs)</td>
-                                <td class="p-4"><span class="px-2 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded text-xs font-bold">Open</span></td>
-                                <td class="p-4 text-right"><a href="signup.html" class="text-primary font-bold hover:underline">Enroll</a></td>
+                                <td class="p-4"><span
+                                        class="px-2 py-1 bg-primary/10 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-100 rounded text-xs font-bold">Open</span>
+                                </td>
+                                <td class="p-4 text-right"><a href="signup.html"
+                                        class="text-primary font-bold hover:underline">Enroll</a></td>
                             </tr>
                             <!-- Row 4 -->
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
@@ -275,8 +359,12 @@
                                 <td class="p-4 text-gray-600 dark:text-gray-400">15-18</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">Mon & Wed</td>
                                 <td class="p-4 text-gray-600 dark:text-gray-400">5:00 PM (2.5 Hrs)</td>
-                                <td class="p-4"><span class="px-2 py-1 bg-primary/10 text-primary-dark dark:bg-red-900/30 dark:text-primary-100 rounded text-xs font-bold">Waitlist</span></td>
-                                <td class="p-4 text-right"><a href="contact.html" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 font-bold hover:underline">Join Waitlist</a></td>
+                                <td class="p-4"><span
+                                        class="px-2 py-1 bg-primary/10 text-primary-dark dark:bg-red-900/30 dark:text-primary-100 rounded text-xs font-bold">Waitlist</span>
+                                </td>
+                                <td class="p-4 text-right"><a href="contact.html"
+                                        class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 font-bold hover:underline">Join
+                                        Waitlist</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -288,10 +376,13 @@
         <section class="relative py-24 overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary"></div>
 
-            <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white" data-aos="zoom-in"
+                data-aos-duration="1000">
                 <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">Ready to Step into the Spotlight?</h2>
-                <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">Create an account to manage your child's enrollments, schedules, and view exclusive rehearsal photos.</p>
-                <a href="signup.html" class="inline-flex items-center gap-2 px-10 py-5 bg-white text-primary-dark rounded-full font-bold text-xl hover:bg-gray-100 transition-all shadow-theater hover:-translate-y-1">
+                <p class="text-xl text-primary-100 mb-10 max-w-md mx-auto">Create an account to manage your child's
+                    enrollments, schedules, and view exclusive rehearsal photos.</p>
+                <a href="signup.html"
+                    class="inline-flex items-center gap-2 px-10 py-5 bg-white text-primary-dark rounded-full font-bold text-xl hover:bg-gray-100 transition-all shadow-theater hover:-translate-y-1">
                     Create Parent Account <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
             </div>
@@ -299,21 +390,47 @@
     </main>
 
     <!-- FOOTER (EXACT MATCH) -->
-    <footer class="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 py-16 px-4">
+    <footer
+        class="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 py-16 px-4">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <!-- Brand -->
             <div>
                 <a href="index.html" class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md shrink-0">
                         <i data-lucide="sparkles" class="w-6 h-6"></i>
                     </div>
-                    <span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
+                    <span
+                        class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">StageSpark</span>
                 </a>
-                <p class="text-gray-600 dark:text-gray-400 mb-6">Empowering children through the magic of theater. A premium drama workshop for the stars of tomorrow.</p>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Empowering children through the magic of theater. A
+                    premium drama workshop for the stars of tomorrow.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-5 h-5">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-5 h-5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-gray-600 dark:text-gray-300 hover:text-white"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-5 h-5">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                            </path>
+                        </svg></a>
                 </div>
             </div>
 
@@ -323,7 +440,8 @@
                 <ul class="space-y-3">
                     <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
                     <li><a href="instructors.html" class="hover:text-primary transition-colors">Our Instructors</a></li>
-                    <li><a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a></li>
+                    <li><a href="upcoming-shows.html" class="hover:text-primary transition-colors">Upcoming Shows</a>
+                    </li>
                     <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
                 </ul>
             </div>
@@ -333,8 +451,10 @@
                 <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Our Programs</h4>
                 <ul class="space-y-3">
                     <li><a href="programs.html" class="hover:text-primary transition-colors">Little Stars (4-6)</a></li>
-                    <li><a href="programs.html" class="hover:text-primary transition-colors">Young Performers (7-10)</a></li>
-                    <li><a href="programs.html" class="hover:text-primary transition-colors">Junior Actors (11-14)</a></li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Young Performers (7-10)</a>
+                    </li>
+                    <li><a href="programs.html" class="hover:text-primary transition-colors">Junior Actors (11-14)</a>
+                    </li>
                     <li><a href="programs.html" class="hover:text-primary transition-colors">Teen Stage (15-18)</a></li>
                 </ul>
             </div>
@@ -342,22 +462,28 @@
             <!-- Newsletter -->
             <div>
                 <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-6">Newsletter</h4>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive updates on new programs and upcoming shows.</p>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive updates on new programs and
+                    upcoming shows.</p>
                 <form class="flex" onsubmit="event.preventDefault();">
-                    <input type="email" placeholder="Email address" class="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-l-lg focus:outline-none focus:border-primary text-gray-900 dark:text-white">
-                    <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg transition-colors text-white">
+                    <input type="email" placeholder="Email address"
+                        class="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-l-lg focus:outline-none focus:border-primary text-gray-900 dark:text-white">
+                    <button type="submit"
+                        class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg transition-colors text-white">
                         <i data-lucide="send" class="w-5 h-5"></i>
                     </button>
                 </form>
             </div>
         </div>
-        
-        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+
+        <div
+            class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
             <p>&copy; 2026 StageSpark Kids Theater & Drama Workshop. All rights reserved.</p>
             <div class="flex items-center gap-6">
                 <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Privacy Policy</a>
                 <a href="#" class="hover:text-primary dark:hover:text-white transition-colors">Terms of Service</a>
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="ml-2 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors group" title="Back to top">
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    class="ml-2 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors group"
+                    title="Back to top">
                     <i data-lucide="arrow-up" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
                 </button>
             </div>
@@ -372,18 +498,5 @@
     <script src="assets/js/main.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
