@@ -170,7 +170,7 @@
                         <i data-lucide="sun" id="theme-toggle-light-icon" class="w-5 h-5"></i>
                     </button>
                     <button id="rtl-toggle"
-                        class="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary shrink-0"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary shrink-0"
                         title="Toggle RTL"><i data-lucide="arrow-left-right" class="w-5 h-5"></i></button>
 
                     <div class="flex items-center gap-2 sm:gap-3 pl-2 sm:pl-4 border-l border-gray-200 dark:border-gray-700 shrink-0">
@@ -728,35 +728,37 @@
                         <div class="p-6 border-b border-gray-100 dark:border-gray-800">
                             <h3 class="font-bold text-gray-900 dark:text-white">Payment History</h3>
                         </div>
-                        <table class="w-full text-left whitespace-nowrap">
-                            <thead class="bg-gray-50 dark:bg-gray-800/50">
-                                <tr>
-                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Date</th>
-                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Description</th>
-                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Amount</th>
-                                    <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-                                <tr>
-                                    <td class="p-4 text-sm text-gray-600 dark:text-gray-400">Jan 01, 2026</td>
-                                    <td class="p-4 text-sm text-gray-900 dark:text-white">Spring Term 2026 - Installment
-                                        1</td>
-                                    <td class="p-4 text-sm text-gray-900 dark:text-white font-medium">$150.00</td>
-                                    <td class="p-4"><span
-                                            class="bg-primary/10 text-primary-dark dark:bg-primary/20 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Paid</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 text-sm text-gray-600 dark:text-gray-400">Nov 15, 2025</td>
-                                    <td class="p-4 text-sm text-gray-900 dark:text-white">Registration Fee</td>
-                                    <td class="p-4 text-sm text-gray-900 dark:text-white font-medium">$50.00</td>
-                                    <td class="p-4"><span
-                                            class="bg-primary/10 text-primary-dark dark:bg-primary/20 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Paid</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left whitespace-nowrap">
+                                <thead class="bg-gray-50 dark:bg-gray-800/50">
+                                    <tr>
+                                        <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Date</th>
+                                        <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Description</th>
+                                        <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Amount</th>
+                                        <th class="p-4 font-bold text-sm text-gray-600 dark:text-gray-300">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                    <tr>
+                                        <td class="p-4 text-sm text-gray-600 dark:text-gray-400">Jan 01, 2026</td>
+                                        <td class="p-4 text-sm text-gray-900 dark:text-white">Spring Term 2026 - Installment
+                                            1</td>
+                                        <td class="p-4 text-sm text-gray-900 dark:text-white font-medium">$150.00</td>
+                                        <td class="p-4"><span
+                                                class="bg-primary/10 text-primary-dark dark:bg-primary/20 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Paid</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-sm text-gray-600 dark:text-gray-400">Nov 15, 2025</td>
+                                        <td class="p-4 text-sm text-gray-900 dark:text-white">Registration Fee</td>
+                                        <td class="p-4 text-sm text-gray-900 dark:text-white font-medium">$50.00</td>
+                                        <td class="p-4"><span
+                                                class="bg-primary/10 text-primary-dark dark:bg-primary/20 dark:text-primary-100 px-2 py-1 rounded text-xs font-bold">Paid</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 

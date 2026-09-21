@@ -103,10 +103,10 @@ h1, h2, h3, .font-display {
 }
 
 /* Theme Toggle Circle */
-#theme-toggle, .theme-toggle-btn {
+#theme-toggle, .theme-toggle-btn, #rtl-toggle, .rtl-toggle-btn {
     border: 2px solid #4b5563;
 }
 
-.dark #theme-toggle, .dark .theme-toggle-btn {
+.dark #theme-toggle, .dark .theme-toggle-btn, .dark #rtl-toggle, .dark .rtl-toggle-btn {
     border-color: #d1d5db;
 }
